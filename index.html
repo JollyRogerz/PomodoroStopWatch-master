@@ -1,0 +1,75 @@
+﻿<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Pomodoro</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Um Timer Pomodoro 🍅">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Pomodoro 🍅">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Pomodoro 🍅">
+  <link rel="icon" sizes="144x144" href="assets/images/pomodoro_144.png">
+  <meta name="theme-color" content="#cf3145">
+  <meta property="og:title" content="Pomodoro 🍅">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="A Pomodoro progressive web app that you can add to your screen!">
+  <link rel='stylesheet' type='text/css' href='styles/main.css' />
+</head>
+<body>
+  <div id='pomodoro'>
+    <h1 id='status'>Prepara-te para trabalhar</h1>
+    <div id='clock-container'>
+      <div id="clockdiv">
+        <div id='time-container'>
+          <div id ="minutos">
+              <span class="minutes" id="minutoss">25</span>
+          </div>
+          <div id ="segundos">
+            <span class="seconds" id="segundoss">00</span>
+          </div>
+        </div>
+        <div id='button-container'>
+          <button id='tomato' class='visbible'">
+            <img src="assets/images/pomodoro_144.png" alt="tomato button">
+          </button>
+          <div id='break-buttons' class='hidden'>
+            <button id='five-min'>
+              5 MINS
+            </button>
+            <button id='ten-min'>
+              10 MINS
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id='volume-container'>
+      <div id='volume'>
+        <img src='assets/images/volume_on.svg' alt='volume on/off' />
+      </div>
+    </div>
+  </div>
+<script type="text/javascript">
+
+    var green = "#7FFF00";
+    var red = "#cf3145";
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('pomodoro_sw.js', {
+                scope: './'
+            })
+            .then(function(reg) {
+                console.log(`Service Worker Registered. Scope: ${reg.scope}`);
+            });
+
+        navigator.serviceWorker.ready.then(function(reg) {
+            console.log('Service Worker Ready');
+        })
+    }
+</script>
+  <script async src='scripts/main.js'></script>
+</body>
+</html>
