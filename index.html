@@ -1,4 +1,5 @@
-﻿<html>
+﻿<!DOCTYPE html>
+<html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Pomodoro</title>
@@ -52,24 +53,15 @@
       </div>
     </div>
   </div>
-<script type="text/javascript">
-
-    var green = "#7FFF00";
-    var red = "#cf3145";
-
+  <script>
+    // Check that service workers are registered
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('pomodoro_sw.js', {
-                scope: './'
-            })
-            .then(function(reg) {
-                console.log(`Service Worker Registered. Scope: ${reg.scope}`);
-            });
-
-        navigator.serviceWorker.ready.then(function(reg) {
-            console.log('Service Worker Ready');
-        })
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/pomodoro_sw.js');
+      });
     }
-</script>
+    </script>
   <script async src='scripts/main.js'></script>
 </body>
 </html>
