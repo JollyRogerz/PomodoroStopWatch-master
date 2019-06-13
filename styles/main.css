@@ -126,10 +126,10 @@ h1 {
     from { opacity: 1; }
       to { opacity: 0; }
 }
-/*.tomato-active {
+.tomato-active {
     -webkit-animation: fadeOut 0.5s;
     animation: fadeOut 0.5s;
-}*/
+}
 @font-face {
     font-family: 'Gotham-medium';
     src: url('../assets/fonts/gotham-medium.woff') format('woff');
